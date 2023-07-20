@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +13,7 @@
 </head>
 
 <body>
+{% block content %}
   <ul class="nav nav-pills sticky-top bg-white nav-fill">
     <li class="nav-item">
       <a class="nav-link" href="index.html">
@@ -53,6 +55,7 @@
     <span class="badge bg-primary">Сейчас вы находитесь на сайте под ником "username".</span>
   </div>
 </div>
+{% endblock %}
 <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

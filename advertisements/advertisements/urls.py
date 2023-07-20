@@ -25,6 +25,6 @@ urlpatterns = [
 
 """
 https://mysite.com/admin/
-https://mysite.com/p/
+https://mysite.com/fp/
 https://mysite.com/lesson_4
 """
