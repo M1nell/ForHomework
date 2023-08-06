@@ -19,14 +19,14 @@ class advertisement(models.Model):
         verbose_name_plural = 'Объявления'
 
 
-    # @admin.display(description="Dete on creation")
-    # def created_date(self):
-    #     from django.utils import timezone
-    #     if self.date_now.date() ==timezone.now().date():
-    #         created_time = self.date_now.time().strftime("%H:%M:%S")
-    #         return format_html(
-    #             '<span style = "color:green; font-weight: bold;"> Today at {}</span>',created_time
-    #         )
-    #     return self.darte_now.strftime("%d.%m.%y at %H:%M:%S")
-    #
+    @admin.display(description="Time of creation")
+    def created_date(self):
+        from django.utils import timezone
+        if self.date_now.date() ==timezone.now().date():
+            created_time = self.date_now.time().strftime("%H:%M:%S")
+            return format_html(
+                '<span style = "color:green; font-weight: bold;"> Today at {}</span>',created_time
+            )
+        return self.date_now.strftime("%d.%m.%y at %H:%M:%S")
+
 

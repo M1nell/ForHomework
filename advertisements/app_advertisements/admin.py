@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import advertisement
 class AdvertisementAdmin(admin.ModelAdmin):
-    list_display = ['title','descriptions','price','trade','date_now','date_update',]
+    list_display = ['title','descriptions','price','trade','date_now','date_update','created_date']
     list_filter = ['date_now','descriptions','trade']
     fieldsets = (
         ("First block",{
