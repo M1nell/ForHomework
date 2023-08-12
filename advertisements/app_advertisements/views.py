@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import advertisement
 
 def index(request):
-    return render(request,'index.html')
+    advertisements = advertisement.objects.all()
+    context = {'advertisements':advertisements}
+    return render(request,'index.html',context = context)
 
 def top(request):
     return render(request,'top-sellers.html')
@@ -19,7 +22,7 @@ def profile(request):
 def register(request):
     return render(request,'register.html')
 
-def advertisement(request):
+def advertisements(request):
     return render(request,'advertisement.html')
 
 
