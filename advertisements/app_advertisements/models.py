@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.html import format_html
 from django.contrib import admin
 from django.contrib.auth import get_user_model
-from django.utils.html import mark_safe
+
 
 User = get_user_model()
 # Create your models here.
@@ -37,8 +37,12 @@ class advertisement(models.Model):
 
     @admin.display(description="Image")
     def img(self):
-        return mark_safe(
-            f'<img scr = "{self.image.url}" width = "75" height = "75"/>'
-        )
-
+        if self.image:
+            return format_html(
+                '<img scr = "/media/{}"  width = "75" height = "75"/>',self.image
+            )
+        else:
+            return format_html(
+                '<img scr = "/static/img/adv.png"  width = "75" height = "75"/>',self.image
+            )
 
