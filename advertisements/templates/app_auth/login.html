@@ -9,11 +9,12 @@
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/fontello.css">
-  <title>Profile</title>
+  <title>Login</title>
 </head>
 
 <body>
 {% block content %}
+
   <ul class="nav nav-pills sticky-top bg-white nav-fill">
     <li class="nav-item">
       <a class="nav-link" href="index.html">
@@ -35,12 +36,12 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="login.html">
+      <a class="nav-link active" aria-current="page" href="login.html">
         <span style="font-weight: bold;">Войти</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="profile.html">
+      <a class="nav-link" href="profile.html">
         <span style="font-weight: bold;">Профиль</span>
       </a>
     </li>
@@ -50,12 +51,41 @@
       </a>
     </li>
   </ul>
-<div class="col" style="margin: 50px;">
-  <div class="display-2">
-    <span class="badge bg-primary">Сейчас вы находитесь на сайте под ником "username".</span>
+  <div class="container">
+  <div class="row">
+    <div class="col-8" style="margin: 50px;">
+      <div class="display-2">
+        <span class="badge bg-primary">Страница авторизации пользователя</span>
+      </div>
+    </div>
   </div>
-</div>
+    <form method="post">
+      {% csrf_token %}
+      {{error}}
+      <div class="row mb-3">
+        <div class="col">
+          <label class="col-sm-4 col-form-label offset-4">Username</label>
+          <div class="col-sm-4 offset-4 w-25">
+            <input name = "username" type="text" class="form-control form-control-lg">
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <label class="col-sm-4 col-form-label offset-4">Password</label>
+          <div class="col-sm-4 offset-4 w-25">
+            <input name = "password" type="password" class="form-control form-control-lg">
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3 offset-sm-5">
+        <div class="col">
+          <button type="submit" class="btn btn-success">Принять</button>
+        </div>
+      </div>
+    </form>
+  </div>
 {% endblock %}
-<script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

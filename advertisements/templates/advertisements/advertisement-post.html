@@ -9,15 +9,15 @@
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/fontello.css">
-  <title>Login</title>
+  <title>Advertisement-post</title>
 </head>
 
-<body>
 {% block content %}
+
 
   <ul class="nav nav-pills sticky-top bg-white nav-fill">
     <li class="nav-item">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{% url '/'%}">
         <span style="font-weight: bold;">Главная</span>
       </a>
     </li>
@@ -26,56 +26,42 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="advertisement-post.html">
+      <a class="nav-link active" aria-current="page" href="advertisement-post.html">
         <span style="font-weight: bold;">Разместить объявление</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="register.html">
+      <a class="nav-link" href="{% url 'register' %}">
         <span style="font-weight: bold;">Регистрация</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="login.html">
+      <a class="nav-link" href="{% url 'login' %}">
         <span style="font-weight: bold;">Войти</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="profile.html">
+      <a class="nav-link" href="{% url 'profile' %}">
         <span style="font-weight: bold;">Профиль</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{% url 'logout' %}">
         <span style="font-weight: bold;">Выйти</span>
       </a>
     </li>
   </ul>
-  <div class="container">
   <div class="row">
-    <div class="col-8" style="margin: 50px;">
+    <div class="col" style="margin: 50px;">
       <div class="display-2">
-        <span class="badge bg-primary">Страница авторизации пользователя</span>
+        <span class="badge bg-primary">Сообщите миру об этом в этой форме</span>
       </div>
     </div>
   </div>
-    <form method="post">
-      <div class="row mb-3">
-        <div class="col">
-          <label class="col-sm-4 col-form-label offset-4">Username</label>
-          <div class="col-sm-4 offset-4 w-25">
-            <input type="text" class="form-control form-control-lg">
-          </div>
-        </div>
-      </div>
-      <div class="row mb-3">
-        <div class="col">
-          <label class="col-sm-4 col-form-label offset-4">Password</label>
-          <div class="col-sm-4 offset-4 w-25">
-            <input type="password" class="form-control form-control-lg">
-          </div>
-        </div>
-      </div>
+  <div class="container">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
       <div class="row mb-3 offset-sm-5">
         <div class="col">
           <button type="submit" class="btn btn-success">Принять</button>
@@ -84,6 +70,6 @@
     </form>
   </div>
 {% endblock %}
+
   <script src="js/bootstrap.bundle.min.js"></script>
-</body>
 </html>
